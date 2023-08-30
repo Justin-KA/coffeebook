@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Galery</title>
+    <!-- add stylesheet -->
+</head>
+<body>
+    <div>
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/upload">Upload</a>
+            </li>
+
+        </ul>
+    </div>
+
+    <% coffees.forEach(coffee => { %>
+        <div>
+            <div>
+                <img src="/images/<%= coffee.image %>" alt="coffee image">
+                <div>
+                <h5><%= coffee.name %></h5>
+                    <p> 
+                        Pattern: <%= coffee.patern %> <br>
+                        Blurb: <%= coffee.blurb %> <br>
+                    </p>
+                </div>
+                <div>
+                    <a href="/edit/<%= coffee._id%>">Edit</a>
+                    <form action="/delete/<%= coffee._id%>" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <% }) %> 
+    
+</body>
+</html>
