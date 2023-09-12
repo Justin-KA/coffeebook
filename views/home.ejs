@@ -7,17 +7,8 @@
     <!-- add stylesheet -->
 </head>
 <body>
-    <div>
-        <ul>
-            <li>
-                <a href="/">Home</a>
-            </li>
-            <li>
-                <a href="/upload">Upload</a>
-            </li>
 
-        </ul>
-    </div>
+    <%- include('partials/navbar') %>
 
     <% coffees.forEach(coffee => { %>
         <div>
