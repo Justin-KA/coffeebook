@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Coffee</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/upload">Upload</a>
+            </li>
+
+        </ul>
+    </div>
+    
+    <div>
+        <div>
+            <div>
+                <h2>Edit Coffee</h2>
+                <form action="/edit/<%= coffee._id %>" method="POST">
+                    <div>
+                        <label for="name">Name your coffee</label>
+                        <input type="text" id="name" name="name" value="<%= coffee.name %>" required>
+                    </div>
+                    <div>
+                        <label for="blurb">Tell us about it</label>
+                        <input type="text" id="blurb" name="blurb" value="<%= coffee.blurb %>" required>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

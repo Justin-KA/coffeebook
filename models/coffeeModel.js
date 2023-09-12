@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 
 const coffeeSchema = new mongoose.Schema({
-    pattern: String,
+    name: String,
     blurb: String,
     image: String
 })

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- TODO: add stylesheet -->
+</head>
+<body>
+    <div>
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/upload">Upload</a>
+            </li>
+
+        </ul>
+    </div>
+    
+    <div>
+        <div>
+            <div>
+                <h2>Upload a Coffee</h2>
+                <form action="/upload" method="POST" enctype="multipart/form-data">
+                    <div>
+                        <label for="name">Name your coffee</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div>
+                        <label for="blurb">Tell us about it</label>
+                        <input type="text" id="blurb" name="blurb" required>
+                    </div>
+                    <div>
+                        <label for="image">Image</label>
+                        <input type="file" id="image" name="image" required>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
