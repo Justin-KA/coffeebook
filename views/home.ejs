@@ -17,16 +17,16 @@
             <div class="card h-100">
                 <img class="card-img-top" src="/images/<%= coffee.image %>" alt="coffee image">
                 <div class="card-body">
-                <h5 class="card-title"><%= coffee.name %></h5>
-                    <p class="card-text"> 
-                        Blurb: <%= coffee.blurb %> <br>
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <a href="/edit/<%= coffee._id%>" class="btn btn-primary">Edit</a>
-                    <form action="/delete/<%= coffee._id%>" method="POST">
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
+                    <h5 class="card-title"><%= coffee.name %></h5>
+                        <p class="card-text"> 
+                            Blurb: <%= coffee.blurb %> <br>
+                        </p>
+                    <div class="card-footer">
+                        <a href="/edit/<%= coffee._id%>" class="btn btn-primary">Edit</a>
+                        <form action="/delete/<%= coffee._id%>" method="POST">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
