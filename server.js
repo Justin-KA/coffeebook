@@ -4,6 +4,7 @@ const app = express()
 const mongoose = require('mongoose')
 const connectDB = require('./config/connectDB')
 const coffeeRoutes = require('./routes/coffeeRoutes')
+const userRoutes = require('./routes/userRoutes')
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 const User = require('./models/userModel')
@@ -39,6 +40,7 @@ app.use((req, res, next) => {
 })
 
 app.use('/', coffeeRoutes)
+app.use('/', userRoutes)
 
 mongoose.connection.once('open', () => {
     console.log('Connected to MongoDB')

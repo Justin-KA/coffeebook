@@ -21,12 +21,17 @@
                         <p class="card-text"> 
                             Blurb: <%= coffee.blurb %> <br>
                         </p>
+                        <p>
+                            Posted by: <%= coffee.owner.username %>
+                        </p>
+                    <% if (currentUser && coffee.owner._id.equals(currentUser._id)) {%>
                     <div class="card-footer">
                         <a href="/edit/<%= coffee._id%>" class="btn btn-primary">Edit</a>
                         <form action="/delete/<%= coffee._id%>" method="POST">
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
                     </div>
+                    <% } %> 
                 </div>
             </div>
         </div>

@@ -2,11 +2,11 @@ const passport = require("passport");
 const User = require('../models/userModel')
 
 const loginPage = (req, res) => {
-    res.render('login')
+    res.render('login', {user: req.user})
 }
 
 const registerPage = (req, res) => {
-    res.render('register')
+    res.render('register', {user: req.user})
 }
 
 const loginUser = passport.authenticate('local', {
@@ -31,13 +31,13 @@ const registerUser = async (req, res) => {
 }
 
 const logoutUser = (req, res) => {
-    res.logout(function(err) {
+    req.logout(function(err) {
         if (err) {return next(err)}
         res.redirect('/')
     })
 }
 
-module.export ={
+module.exports ={
     loginUser,
     loginPage,
     loginUser,
