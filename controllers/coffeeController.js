@@ -1,17 +1,20 @@
 const Coffee = require('../models/coffeeModel')
-const multer = require('multer')
+// const multer = require('multer')
+const cloudinary = require("../middleware/cloudinary");
 
-// multer config for image upload
-const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-      cb(null, './public/images');
-    },
-    filename: function(req, file, cb) {
-      cb(null, Date.now() + '-' + file.originalname);
-    }
-  });
+  
 
-const upload = multer({storage: storage})
+// // multer config for image upload
+// const storage = multer.diskStorage({
+//     destination: function(req, file, cb) {
+//       cb(null, './public/images');
+//     },
+//     filename: function(req, file, cb) {
+//       cb(null, Date.now() + '-' + file.originalname);
+//     }
+//   });
+
+// const upload = multer({storage: storage})
 
 const getAllCoffees = async (req, res) => {
     try {
@@ -29,10 +32,13 @@ const uploadPage = (req, res) => {
 
 const createCoffee = async (req, res) => {
     try {
+        // Upload image to cloudinary
+        const result = await cloudinary.uploader.upload(req.file.path);
+
         const coffee = new Coffee({
             name: req.body.name,
             blurb: req.body.blurb,
-            image: req.file.filename, //multer places the file infor in the req.file
+            image: result.secure_url, //multer places the file info in the req.file
             owner: req.user._id
        })
 
@@ -80,7 +86,7 @@ const deleteCoffee = async (req, res) => {
 
 module.exports = {
     getAllCoffees,
-    upload,
+    // upload,
     uploadPage,
     createCoffee,
     editPage,

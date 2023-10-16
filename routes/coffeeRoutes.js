@@ -1,5 +1,6 @@
 const express = require('express')
 const coffeeController = require('../controllers/coffeeController')
+const upload = require("../middleware/multer");
 const router  = express.Router()
 
 router
@@ -9,7 +10,7 @@ router
 router
     .route('/upload')
     .get(coffeeController.uploadPage)
-    .post(coffeeController.upload.single('image'), coffeeController.createCoffee)
+    .post(upload.single('image'), coffeeController.createCoffee)
 
 router
     .route('/edit/:id')
