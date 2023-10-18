@@ -25,7 +25,6 @@ const getAllCoffees = async (req, res) => {
     }
 }
 
-
 const uploadPage = (req, res) => {
     res.render('upload', {user: req.user})
 }
@@ -39,6 +38,7 @@ const createCoffee = async (req, res) => {
             name: req.body.name,
             blurb: req.body.blurb,
             image: result.secure_url, //multer places the file info in the req.file
+            cloudinaryID: result.public_id,
             owner: req.user._id
        })
 

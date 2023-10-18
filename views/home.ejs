@@ -15,7 +15,7 @@
     <% coffees.forEach(coffee => { %>
         <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
             <div class="card h-100">
-                <img class="card-img-top" src="<%= coffee.image %>" alt="coffee image">
+                <img class="card-img-top p-1" src="<%= coffee.image %>" alt="coffee image">
                 <div class="card-body">
                     <h5 class="card-title"><%= coffee.name %></h5>
                         <p class="card-text"> 
@@ -26,10 +26,12 @@
                         </p>
                     <% if (currentUser && coffee.owner._id.equals(currentUser._id)) {%>
                     <div class="card-footer">
-                        <a href="/edit/<%= coffee._id%>" class="btn btn-primary">Edit</a>
-                        <form action="/delete/<%= coffee._id%>" method="POST">
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
+                        <div class="btn-toolbar" role="group" aria-label="Basic example">
+                            <a href="/edit/<%= coffee._id%>" class="btn btn-primary mr-2">Edit</a>
+                            <form action="/delete/<%= coffee._id%>" method="POST">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
                     </div>
                     <% } %> 
                 </div>
